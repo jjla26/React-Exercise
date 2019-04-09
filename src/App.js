@@ -46,20 +46,33 @@ render() {
         <Form handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
 
         {Obj.map((x,id) => <div key={id} className="container">
-                        <div className="col-md-12 card container text-left">
-                          <div className="card-header">
-                            <div className="row">
-                              <span style={style}><img src={x.profile_pic} /></span>
-                              <div>{x.name}</div>
+                            <div className="col-md-12 card container text-left">
+                              <div className="card-header">
+                                <div className="row">
+                                  <span style={style}><img src={x.profile_pic} /></span>
+                                  <div>{x.name}</div>
+                                </div>
+                              </div>
+                              <div className="card-body">
+                                <div>
+                                  <div>{x.desc}</div>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                          <div className="card-body">
-                            <div>
-                              <div>{x.desc}</div>
-                            </div>
-                          </div>
-                        </div>
-                        
+                            {x.answer &&
+                            <div className="col-md-10 offset-md-2 card container text-left">
+                              <div className="card-header">
+                                <div className="row">
+                                  <span style={style}><img src={x.answer && x.answer.profile_pic} /></span>
+                                  <div>{x.answer && x.answer.name}</div>
+                                </div>
+                              </div>
+                              <div className="card-body">
+                                <div>
+                                  <div>{x.answer && x.answer.desc}</div>
+                                </div>
+                              </div>
+                            </div>}
                       </div>
         )}
       </div>
